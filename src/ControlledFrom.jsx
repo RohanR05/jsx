@@ -6,14 +6,23 @@ const ControlledFrom = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    const { ne, value } = e.target;
+    const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
-      [ne]: value,
+      [name]: value,
     }));
+
+    if (name === "password") {
+      if (value.length < 6) {
+        setError("need more characters");
+      } else {
+        setError("");
+      }
+    }
   };
 
   const handleData = (e) => {
@@ -50,7 +59,7 @@ const ControlledFrom = () => {
         <br />
         <input type="submit" />
       </form>
-      <p></p>
+      <p style={{ color: "red" }}>{error}</p>
     </div>
   );
 };
