@@ -1,15 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Rr from './lolo'
-import Batsman from './Run/Batsman'
-import Click from './Run/Click/Click'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./Home";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Home,
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Rr></Rr>
-    <Batsman></Batsman>
-    <Click></Click>
+    <RouterProvider router={router} />,
   </StrictMode>,
-)
+);

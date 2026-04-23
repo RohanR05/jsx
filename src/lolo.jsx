@@ -10,7 +10,7 @@ const Rr = () => {
   return (
     <div>
       <h2>Count:{count} </h2>
-      <button onClick={handleCount}>Click</button>
+      <button onClick={handleCount}>Click:</button>
     </div>
   );
 };
