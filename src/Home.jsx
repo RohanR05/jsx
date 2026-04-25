@@ -1,4 +1,5 @@
 import ControlledFrom from "./ControlledFrom"
+import FormManagement from "./FormManagement"
 import Rr from "./lolo"
 import UncontrolledForm from "./UncontrolledForm"
 
@@ -7,7 +8,8 @@ const Home = () => {
     <div>
         {/* <Rr></Rr> */}
         {/* <UncontrolledForm></UncontrolledForm> */}
-        <ControlledFrom></ControlledFrom>
+        {/* <ControlledFrom></ControlledFrom> */}
+        <FormManagement></FormManagement>
     </div>
   )
 }
