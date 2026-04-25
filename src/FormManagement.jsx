@@ -4,14 +4,15 @@ import FormTable from "./FormTable";
 
 const FormManagement = () => {
   const [products, setProducts] = useState([]);
+
   const handleAddProducts = (newProduct) => {
-    const newProducts = [...products, newProduct];
-    setProducts(newProducts);
+    setProducts((prev) => [...prev, newProduct]);
   };
   return (
     <div>
+      <h1>Product Management</h1>
       <Form handleAddProducts={handleAddProducts}></Form>
-      <FormTable></FormTable>
+      <FormTable products={products}></FormTable>
     </div>
   );
 };
