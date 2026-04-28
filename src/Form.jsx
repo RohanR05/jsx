@@ -2,23 +2,30 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ handleAddProducts }) => {
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const price = e.target.price.value;
-    const quantity = e.target.quantity.value;
+    const name = e.target.name.value.trim();
+    const price = e.target.price.value.trim();
+    const quantity = e.target.quantity.value.trim();
 
-    const addProduct = { name, price, quantity };
+    const addProduct = {
+      name: name,
+      price: Number(price),
+      quantity: Number(quantity),
+    };
 
     if (name.length === 0) {
       setError("Add a name");
       return;
-    } else if (!price) {
+    } else if (!price && price !== 0) {
       setError("add price");
       return;
     } else if (!quantity) {
       setError("add quantity");
+      return;
+    } else if (isNaN(price) || isNaN(quantity)) {
+      setError("Enter Number");
       return;
     } else {
       setError("");
