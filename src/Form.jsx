@@ -18,7 +18,7 @@ const Form = ({ handleAddProducts }) => {
     if (name.length === 0) {
       setError("Add a name");
       return;
-    } else if (!price && price !== 0) {
+    } else if (!price) {
       setError("add price");
       return;
     } else if (!quantity) {
@@ -27,8 +27,12 @@ const Form = ({ handleAddProducts }) => {
     } else if (isNaN(price) || isNaN(quantity)) {
       setError("Enter Number");
       return;
+    } else if (Number(price) === 0 || Number(quantity) === 0) {
+      setError("Cannot be 0");
+      return;
     } else {
       setError("");
+      alert("DOne")
     }
     handleAddProducts(addProduct);
   };
