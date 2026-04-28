@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 // eslint-disable-next-line react/prop-types
 const Form = ({ handleAddProducts }) => {
+  const [error, setError] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -7,6 +10,19 @@ const Form = ({ handleAddProducts }) => {
     const quantity = e.target.quantity.value;
 
     const addProduct = { name, price, quantity };
+
+    if (name.length === 0) {
+      setError("Add a name");
+      return;
+    } else if (!price) {
+      setError("add price");
+      return;
+    } else if (!quantity) {
+      setError("add quantity");
+      return;
+    } else {
+      setError("");
+    }
     handleAddProducts(addProduct);
   };
   return (
@@ -20,6 +36,9 @@ const Form = ({ handleAddProducts }) => {
         <br />
         <input type="submit" />
       </form>
+      <span>
+        <p style={{ color: "red" }}>{error}</p>
+      </span>
     </div>
   );
 };
