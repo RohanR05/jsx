@@ -9,7 +9,7 @@ const Home = () => {
         {/* <Rr></Rr> */}
         {/* <UncontrolledForm></UncontrolledForm> */}
         {/* <ControlledFrom></ControlledFrom> */}
-        <FormManagement></FormManagement>
+        {/* <FormManagement></FormManagement> */}
     </div>
   )
 }
